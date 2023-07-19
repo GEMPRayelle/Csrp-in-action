@@ -28,9 +28,7 @@ namespace CsharpKitTest{
             int b = a + 1;
             return b;
         }
-        int c = MovementCalc(1);
-        int d = MovementCalc(2);
-        //full charge 123
+        //full
     }
 
 }
