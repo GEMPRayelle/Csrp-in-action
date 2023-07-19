@@ -29,7 +29,6 @@ namespace CsharpKitTest{
             return b;
         }
         int c = MovementCalc(1);
-        int d = MovementCalc(2);
         
     }
 
