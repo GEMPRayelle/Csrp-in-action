@@ -30,7 +30,7 @@ namespace CsharpKitTest{
         }
         int c = MovementCalc(1);
         int d = MovementCalc(2);
-        //full charge 12
+        //full charge 123
     }
 
 }
