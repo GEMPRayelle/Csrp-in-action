@@ -29,7 +29,7 @@ namespace CsharpKitTest{
             return b;
         }
         int c = MovementCalc(1);
-        //
+        float f = 0;
     }
 
 }
