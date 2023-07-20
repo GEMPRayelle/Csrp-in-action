@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;//리스트를 사용하기위해 이 네임스페이스를 선언해야함
 
 namespace CsharpKitTest{
 
