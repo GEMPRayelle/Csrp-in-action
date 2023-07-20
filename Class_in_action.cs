@@ -50,8 +50,14 @@ namespace CsharpKitTest
     }
     class Class_in_action
     {    
+        public static int instanceVariable = 10;
+
         static void Main(string[] args)
         {
+            //82번줄 같은 클래스 메소드에서는 메모리에 올라가있지 않은 변수,메소드는 사용 할 수 없다
+            //instanceVariable 변수를 사용하기 위해서 static을 추가해주어야 한다
+            Console.WriteLine(instanceVariable);
+
             //객체 car는 클래스내에 여러가지 정의와 기능들을 받아와 사용할 수 있음
 
             /*Car()는 생성자로서 메소드이다, 클래스의 동일한 이름을 가지며,
