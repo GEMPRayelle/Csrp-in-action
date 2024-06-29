@@ -51,6 +51,10 @@ public class Nullable_System : MonoBehaviour {
         print(s?.IndexOf('링'));
         //s가 null인지를 체크해서 null이면 뒷부분을 실행하지 않음, null이 출력됨
         print(s?.IndexOf('링') ?? -1);//-1이 출력됨
+
+        /*[중요] UnityEngine.object에는 쓰면 안됨 (fake null)*/
+        //int float bool 같은 경우는 System에 있는 변수인데
+        //아직 유니티에는 지원이 안 됨 그래서 유니티 오브젝트관련은 그냥 null체크를 할 것
     }
 }
 
