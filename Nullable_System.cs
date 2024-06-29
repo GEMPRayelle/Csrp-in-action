@@ -55,6 +55,10 @@ public class Nullable_System : MonoBehaviour {
         /*[중요] UnityEngine.object에는 쓰면 안됨 (fake null)*/
         //int float bool 같은 경우는 System에 있는 변수인데
         //아직 유니티에는 지원이 안 됨 그래서 유니티 오브젝트관련은 그냥 null체크를 할 것
+
+        int[] nums;
+
+        int? num = nums?[0];//이렇게 배열에서도 활용 가능
     }
 }
 
