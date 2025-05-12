@@ -61,12 +61,12 @@ namespace Rayelle_Csharp_Test
                 //부모 타입 변수 player_2는 자식 타입인 Knight 타입 객체를 참고하고 있었기 때문에
                 //player_2변수를 Knight 타입으로 형변환 해주는건 문제가 되지 않는다 (player_2가 Knight타입 객체를 참고하고 있었기 때문)
 
-                Mage mage = (Mage)player_2; //-> [Runtime Error]
-                                            //부모타입 변수 player_2는 Knight타입 객체를 참고하고 있었기 때문에 Mage타입으로 형변환 될 수 없다
-                                            //컴파일 타임에선 player_2가 어떤 객체를 가리키고 있는지 알 수 없고 런타임때 해당 코드를 실행해봐야 알 수 있는 부분인데
-                                            //Knight와 Mage둘다 Player의 자식이지만 Knight타입의 객체는 Mage에만 정의되어있는 멤버들을 담고 있지 않기 때문
-                                            //-> Mage 타입의 변수 mage로 Knight타입의 객체를 참조할 수 없기 때문에,
-                                            //-> Knight 타입의 객체를 가리키고 있는 player_2는 Mage로 형변환 될 수 없음
+                Mage mage = (Mage)player_2;//-> [Runtime Error]
+                //부모타입 변수 player_2는 Knight타입 객체를 참고하고 있었기 때문에 Mage타입으로 형변환 될 수 없다
+                //컴파일 타임에선 player_2가 어떤 객체를 가리키고 있는지 알 수 없고 런타임때 해당 코드를 실행해봐야 알 수 있는 부분인데
+                //Knight와 Mage둘다 Player의 자식이지만 Knight타입의 객체는 Mage에만 정의되어있는 멤버들을 담고 있지 않기 때문
+                //-> Mage 타입의 변수 mage로 Knight타입의 객체를 참조할 수 없기 때문에,
+                //-> Knight 타입의 객체를 가리키고 있는 player_2는 Mage로 형변환 될 수 없음
 
 
                 //Down-Casting시 Runtime Error 방지 방법
