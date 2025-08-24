@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -21,7 +19,9 @@ public class AssetLoader : MonoBehaviour
     //Task > 비동기 작업을 나타내는 클래스
     //Task는 리턴이 없는 작업, Task<T>는 T타입의 결과를 리턴해야함
     //Task.Run()을 사용해서 새 작업을 시작 가능
-
+    
+    private Renderer _heroRenderder;
+    private Renderer _monsterRenderder;
 
     //1. 텍스처 에셋을 비동기적으로 로드하는 메서드
     public async Task<Texture> LoadAssetAsync(string path)
@@ -39,8 +39,32 @@ public class AssetLoader : MonoBehaviour
             return null;
         }
 
-        //5. 전송이 성공했다면
+        //5. 다운로드된 텍스처 리턴
         return DownloadHandlerTexture.GetContent(www);
+    }
+    
+    //6. 여러 에셋을 동시에 로드하는 메서드
+    public async void LoadGameAssets()
+    {
+        try
+        {
+            //7. 두 개의 텍스처 로딩 시작
+            Task<Texture> heroTask = LoadAssetAsync("Prefabs/Hero/Hero.png");
+            Task<Texture> monsterTask = LoadAssetAsync("Prefabs/Monster/Monster.png");
+
+            //8. 두 작업이 모두 완료될때까지 대기
+            await Task.WhenAll(heroTask, monsterTask);
+
+            //9. 로드된 텍스처 사용
+            _heroRenderder.material.mainTexture = heroTask.Result;
+            _monsterRenderder.material.mainTexture = monsterTask.Result;
+
+            Debug.Log("All Assets loaded Succecssfully");
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Assets loaded failed");
+        }
     }
 
 }
